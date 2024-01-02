@@ -1,13 +1,6 @@
-local Target = exports.qtarget
-local Inventory = exports.ox_inventory
-
-OpenStash = function(stash)
-    Inventory:openInventory('stash', stash)
-end
-
 CreateThread(function()
     for k, v in pairs(Config.Stashs) do
-        Target:AddBoxZone("stash_creator", v.Coords, 1.5, 1.5, {
+        Target():AddBoxZone("stash_creator", v.Coords, 1.5, 1.5, {
             name = "stash_creator",
             heading = v.Coords.w,
             debugPoly = false,

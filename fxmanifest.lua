@@ -9,9 +9,9 @@ shared_scripts {
 }
 
 client_script {
-    'client.lua'
+    'client/*.lua'
 }
 
 server_script {
-    'server.lua'
+    'server/*.lua'
 }
