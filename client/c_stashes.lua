@@ -1,5 +1,5 @@
 CreateThread(function()
-    for k, v in pairs(Config.Stashs) do
+    for _, v in pairs(Config.Stashs) do
         Target():AddBoxZone("stash_creator", v.Coords, 1.5, 1.5, {
             name = "stash_creator",
             heading = v.Coords.w,
