@@ -2,9 +2,12 @@ fx_version 'cerulean'
 game 'gta5'
 lua54 'yes'
 
+author 'osc'
+description 'Stash creator'
+version '1.0.0'
+
 shared_scripts {
     '@ox_lib/init.lua',
-    '@es_extended/imports.lua',
     'config.lua'
 }
 
