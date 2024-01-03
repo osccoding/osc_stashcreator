@@ -49,3 +49,19 @@ OpenStash = function(stash)
         TriggerEvent('inventory:openStorage', "Stash", "stash"..stash, 100, 1000, nil)
     end
 end
+
+GetTheJob = function()
+    if Config.Framework == "esx" then
+        if ESX.GetPlayerData().job then
+            return ESX.GetPlayerData().job.name
+        else
+            return false
+        end
+    elseif Config.Framework == "qb" then
+        if QBCore.Functions.GetPlayerData().job then
+            return QBCore.Functions.GetPlayerData().job.name
+        else
+            return false
+        end
+    end
+end

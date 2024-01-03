@@ -4,7 +4,7 @@ lua54 'yes'
 
 author 'osc'
 description 'Stash creator'
-version '1.0.0'
+version '1.0.1'
 
 shared_scripts {
     '@ox_lib/init.lua',
