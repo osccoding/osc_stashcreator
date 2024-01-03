@@ -1,7 +1,7 @@
 Config = {
     Framework = 'esx', -- esx or qb
     Inventory = 'ox', -- qb or ox or quasar or chezza
-    Target = "qtarget", -- qtarget or qb-target or ox_target or false == no target but textui
+    Target = "qtarget", -- qtarget or qb-target or ox_target or false == no target but textui and marker
 }
 
 Config.Stashs = {

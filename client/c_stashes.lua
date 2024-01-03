@@ -26,26 +26,29 @@ CreateThread(function()
                 distance = 2.5
             })
         end
-    else
+    end
+end)
+
+CreateThread(function()
+    if not Config.Target then
         for _, v in pairs(stashList) do
-            lib.zones.sphere {
+            lib.points.new({
                 coords = vector3(v.Coords.x, v.Coords.y, v.Coords.z),
-                radius = 1.5,
-                debug = false,
+                distance = 2,
                 onEnter = function()
-                    if GetTheJob() == v.Job then
-                        lib.showTextUI(v.Target_label)
-                    end
-                end,
-                inside = function()
-                    if IsControlJustPressed(0, 38) and GetTheJob() == v.Job then
-                        OpenStash(v.Name)
-                    end
                 end,
                 onExit = function()
                     lib.hideTextUI()
+                end,
+                nearby = function()
+                    lib.showTextUI(v.Target_label)
+                    DrawMarker(2, v.Coords, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.05, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
+                    if IsControlJustReleased(0, 38) then
+                        OpenStash(v.Name)
+                    end
                 end
-            }
+            })
         end
     end
 end)
+ 
