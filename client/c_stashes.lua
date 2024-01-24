@@ -19,7 +19,23 @@ CreateThread(function()
                             return true
                         end,
                         action = function()
-                            OpenStash(v.Name)
+                            if v.Code then
+                                local input = lib.inputDialog('Code', {
+                                    { type = 'input', label = 'Code', placeholder = 'Enter the code', password = true, min = 4, max = 10 },
+                                })
+                                if not input then return end
+                                if input[1] == v.CodeText then
+                                    OpenStash(v.Name)
+                                else
+                                    lib.notify({
+                                        title = 'Stash',
+                                        description = 'Wrong code',
+                                        type = 'error'
+                                    })
+                                end
+                            else
+                                OpenStash(v.Name)
+                            end
                         end
                     }
                 },
@@ -44,7 +60,23 @@ CreateThread(function()
                     lib.showTextUI(v.Target_label)
                     DrawMarker(2, v.Coords, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.1, 0.05, 255, 255, 255, 255, 0, 0, 0, 1, 0, 0, 0)
                     if IsControlJustReleased(0, 38) then
-                        OpenStash(v.Name)
+                        if v.Code then
+                            local input = lib.inputDialog('Code', {
+                                { type = 'input', label = 'Code', placeholder = 'Enter the code', password = true, min = 4, max = 10 },
+                            })
+                            if not input then return end
+                            if input[1] == v.CodeText then
+                                OpenStash(v.Name)
+                            else
+                                lib.notify({
+                                    title = 'Stash',
+                                    description = 'Wrong code',
+                                    type = 'error'
+                                })
+                            end
+                        else
+                            OpenStash(v.Name)
+                        end
                     end
                 end
             })
